@@ -25,12 +25,24 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 // Costumers class
 $db = getDbInstance();
 $db->where('LogDeleted', "False");
+$db->join('tbl_users', 'tbl_users.id = systemlog.sysUserId');
+
 $rows = $db->get('systemlog');
 
 //Including desgin header + menu
 include_once('../../includes/design-header.php');
 
 //Under comes the main part this page
+?>
+
+<!-- Data Table-->
+<link rel="stylesheet" type="text/css" href="/assets/vendor_components/datatable/datatables.min.css"/>
+
+<?php
+//Including design top
+include_once('../../includes/design-top.php');
+
+//Insert page content below
 ?>
 
 <div class="content-wrapper">
@@ -73,23 +85,19 @@ include_once('../../includes/design-header.php');
                                     <th>LogDescription</th>
                                     <th>LogIpaddress</th>
                                     <th>LogDevice</th>
-                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <?php foreach ($rows as $row): ?>
                                     <tr>
-                                        <td><?php echo htmlspecialchars($row['sysCustomerId']); ?></td>
-                                        <td><?php echo htmlspecialchars($row['sysUserId']); ?></td>
+                                        <td><?php echo htmlspecialchars('(#'.$row['sysUserId'].') '.$row['first_name'].' '.$row['last_name']); ?></td>
+                                        <td><?php echo htmlspecialchars('(#'.$row['sysUserId'].') '.$row['first_name'].' '.$row['last_name']); ?></td>
                                         <td><?php echo htmlspecialchars($row['LogType']); ?></td>
                                         <td><?php echo htmlspecialchars($row['LogDate']); ?></td>
                                         <td><?php echo htmlspecialchars($row['LogSubject']); ?></td>
                                         <td><?php echo htmlspecialchars($row['LogDescription']); ?></td>
                                         <td><?php echo htmlspecialchars($row['LogIpaddress']); ?></td>
                                         <td><?php echo htmlspecialchars($row['LogDevice']); ?></td>
-                                        <td>
-                                            <button type="button" class="btn btn-sm btn-danger-outline delete" id="delete-<?php echo $row['id']; ?>"  data-original-title="Delete"><i class="ti-trash" aria-hidden="true"></i></button>
-                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                                 </tbody>
@@ -110,8 +118,13 @@ include_once('../../includes/design-header.php');
 <?php
 //Including design footer + javascripts
 include_once('../../includes/design-footer.php');
+
+//Including general javascripts
+include_once('../../includes/design-bottom.php');
 ?>
 
+<!-- This is data table -->
+<script src="/assets/vendor_components/datatable/datatables.min.js"></script>
 <!-- Fab Admin for Data Table -->
 <script src="/js/pages/data-table.js"></script>
 <!-- custom js -->
