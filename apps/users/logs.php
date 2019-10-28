@@ -74,7 +74,7 @@ include_once('../../includes/design-top.php');
                     </div>
                     <div class="box-body">
                         <div class="table-responsive">
-                            <table id="logs" class="table mt-0 table-hover no-wrap table-striped table-bordered" data-page-size="10">
+                            <table id="example5" class="table mt-0 table-hover no-wrap table-striped table-bordered" data-page-size="10">
                                 <thead>
                                 <tr class="bg-dark">
                                     <th>sysCustomerId</th>
@@ -101,6 +101,18 @@ include_once('../../includes/design-top.php');
                                     </tr>
                                 <?php endforeach; ?>
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>sysCustomerId</th>
+                                        <th>sysUserId</th>
+                                        <th>LogType</th>
+                                        <th>LogDate</th>
+                                        <th>LogSubject</th>
+                                        <th>LogDescription</th>
+                                        <th>LogIpaddress</th>
+                                        <th>LogDevice</th>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
