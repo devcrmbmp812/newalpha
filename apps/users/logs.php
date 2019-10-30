@@ -38,6 +38,8 @@ include_once('../../includes/design-header.php');
 <!-- Data Table-->
 <link rel="stylesheet" type="text/css" href="/assets/vendor_components/datatable/datatables.min.css"/>
 
+<link rel="stylesheet" type="text/css" href="/apps/users/user.css"/>
+
 <?php
 //Including design top
 include_once('../../includes/design-top.php');
@@ -75,7 +77,7 @@ include_once('../../includes/design-top.php');
                     <div class="box-body">
                         <div class="table-responsive">
                             <table id="example5" class="table mt-0 table-hover no-wrap table-striped table-bordered" data-page-size="10">
-                                <thead>
+                                <thead style="display: table-row-group;">
                                 <tr class="bg-dark">
                                     <th>sysCustomerId</th>
                                     <th>sysUserId</th>
@@ -101,7 +103,7 @@ include_once('../../includes/design-top.php');
                                     </tr>
                                 <?php endforeach; ?>
                                 </tbody>
-                                <tfoot>
+                                <tfoot style="display: table-header-group;">
                                     <tr>
                                         <th>sysCustomerId</th>
                                         <th>sysUserId</th>
