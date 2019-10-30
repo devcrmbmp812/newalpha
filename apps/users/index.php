@@ -146,7 +146,7 @@ include_once('../../includes/design-top.php');
                             <div class="box-header-actions">
                               <button data-toggle="modal" data-target=".user-add-modal" class="btn btn-xs btn-primary btn-flat"><i class="glyphicon glyphicon-plus"></i> Opret bruger</button> &nbsp;&nbsp;&nbsp;&nbsp; 
                               <div class="lookup lookup-sm lookup-right d-none d-lg-block">
-                                <input type="text" name="s" placeholder="Søg..." style="width: 250px;">
+                                <input type="text" name="sog_search" placeholder="Søg..." style="width: 250px;">
                               </div>
                             </div>
                           </div>
@@ -157,7 +157,7 @@ include_once('../../includes/design-top.php');
                         </div>
                         <div class="box-body">
                             <div class="table-responsive">
-                                <table id="tickets" class="table mt-0 table-hover no-wrap table-striped table-bordered" data-page-size="8">
+                                <table id="users_table" class="table mt-0 table-hover no-wrap table-striped table-bordered" data-page-size="10">
                                     <thead>
                                     <tr class="bg-dark">
                                         <th>First Name</th>

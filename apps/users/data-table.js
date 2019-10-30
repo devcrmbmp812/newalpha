@@ -43,6 +43,21 @@ $(function () {
  
     // DataTable
     var table = $('#example5').DataTable();
+
+    var users_table = $('#users_table').DataTable({
+        'paging'      : true,
+        'lengthChange': false,
+        'searching'   : true,
+        'ordering'    : true,
+        'info'        : true,
+        'autoWidth'   : false,
+    });
+
+    $('#users_table_wrapper div').first().hide();
+
+    $('input[name="sog_search"]').on('keyup change',function () {
+        users_table.search($(this).val()).draw() ;
+    });
  
     // Apply the search
     table.columns().every( function () {
